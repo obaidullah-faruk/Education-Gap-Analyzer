@@ -1,0 +1,102 @@
+{% extends 'education_gap_analyzer/base.html' %}
+
+{% block body %}
+{% include 'education_gap_analyzer/navbar.html' %}<!-- banner1 -->
+<br>
+
+<!--<div class="banner1">
+	</div>  -->
+    <div class="services">
+		<div class="container">
+            <div class="w3layouts_header">
+				<h2>Extracted <span>University Contents</span></h2>
+				<p><span><i class="fa fa-book" aria-hidden="true"></i></span></p>
+			</div>
+			<div class="w3layouts_skills_grids">
+				<div class="col-md-12">
+                    <div class="container">
+
+        <!--<h1 style="color:blue;margin-left:10px;">University </h1>-->
+        <div class="row">
+            <div class="col-sm-3 col-md-6 col-lg-3" style="">
+         <form class="form" name="" action="uniDataShow" method="POST">
+             {% csrf_token %}
+             <div class="dropdown">
+                 <label>University Name</label>
+           <select name="uni" id="uniSelect" class="form-control">
+             <option value="EWU">EWU</option>
+             <option value="NSU">NSU </option>
+               <option value="AIUB">AIUB </option>
+           </select>
+             <br>
+                 <label>Department Name</label>
+               <select name="dep" id="depSelect" class="form-control">
+               <option value="CSE">CSE</option>
+               <option value="EEE">EEE </option>
+               <option value="BBA">BBA</option>
+                   <option value="PHARMACY">PHARMACY</option>
+
+           </select>
+             <br>
+                 </div>
+          <input type="submit" class="btn btn-primary" value="Submit" name="uni1">
+         </form>
+            </div>
+        <div class="col-sm-3 col-md-6 col-lg-4" style="">
+       <h4 style="color:#ef543b;">{{ title1 }} </h4>
+            <br>
+            <h4>{{ univ }}</h4>
+        </div>
+        <div class="col-sm-3 col-md-6 col-lg-4" style="">
+
+       <h4 style="color:#ef543b;">{{ title2 }} </h4>
+            <br>
+            <h4>{{ dept }}</h4>
+        </div>
+
+
+        </div>
+                        <style>
+                        .scroll {
+                           margin-top: 1%;
+                           border:2px solid black;
+                           overflow: scroll;
+                           height:250px;
+
+                        }
+                        .custom {
+                            margin-left: 3%;
+                            margin-top:4px;
+                        }
+                    </style>
+
+                        <br>
+                        <h4 style="color:#ef543b;font-size:25px"> {{ title3 }} </h4>
+                        <div class="scroll">
+                            {% for key in UniKeywordSet %}
+                            <div class="custom">
+                                {{ key }}
+                            </div>
+                               {% empty %}
+                                 No Contents
+                            {% endfor %}
+                        </div>
+                        <br>
+
+
+                        <!--<button type="button" class="btn"><a href="selectUni.html" style="text-decoration: none;">Find Similarity </a><br></button>-->
+                        <button type="button" class="btn" style="background-color:#ef543b;"><a href="selectUni.html" style="color:white; text-decoration:none;">Find Similarity with Job </a></button>
+                        <br><br><br>
+
+
+</div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+{% include 'education_gap_analyzer/footer.html' %}
+{% endblock %}

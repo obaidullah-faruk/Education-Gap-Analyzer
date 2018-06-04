@@ -1,0 +1,72 @@
+{% extends 'education_gap_analyzer/base.html' %}
+
+{% block body %}
+{% include 'education_gap_analyzer/navbar.html' %}
+<!-- banner1 -->
+<br>
+
+	<div class="banner1">
+	</div>
+    <div class="services">
+		<div class="container">
+            <div class="w3layouts_header">
+				<h2>Curriculum <span> Suggestion</span></h2>
+				<p><span><i class="fa fa-book" aria-hidden="true"></i></span></p>
+			</div>
+			<div class="w3layouts_skills_grids">
+                <style>
+                        .scroll {
+                           margin-top: 1%;
+                           border:2px solid black;
+                           overflow: scroll;
+                           height:250px;
+
+                        }
+                        .custom {
+                            margin-left: 3%;
+                            margin-top:4px;
+                        }
+                 </style>
+                <div class="row">
+                    <div class="col-md-6 ">
+                        <h4 style="color:#ef543b;font-size:25px"> {{ title1 }} </h4>
+                        <br>
+                        <div class="scroll">
+                          {% for match in matchedKey %}
+                             <div class="custom">
+                                {{ match }}
+                             </div>
+                            {% empty %}
+                             No Contents
+                          {% endfor %}
+                          </div>
+                    </div>
+                    <div class="col-md-6 ">
+                        <h4 style="color:#ef543b;font-size:25px">{{ title2 }}</h4>
+                        <br>
+                        <div class="scroll">
+                        {% for unmatch in unmatchedKey %}
+                            <div class="custom">
+                            {{ unmatch }}
+
+                            </div>
+                             {% empty %}
+                             No Contents
+                          {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div align="center" style="margin-top:10px">
+                    <button type="button" class="btn" style="background:#ef543b;"><a href="comparison.html" style="text-decoration: none;color:white">Show comparison of Applied String Matching Algorithms </a><br></button>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+{% include 'education_gap_analyzer/footer.html' %}
+{% endblock %}

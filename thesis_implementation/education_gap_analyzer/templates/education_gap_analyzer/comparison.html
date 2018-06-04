@@ -1,0 +1,100 @@
+{% extends 'education_gap_analyzer/base.html' %}
+
+    <title>Education Gap Analyzer</title>
+
+{% block body %}
+
+{% include 'education_gap_analyzer/navbar.html' %}
+<br>
+<!-- banner1 -->
+	<!-- <div class="banner1"></div>  -->
+    <div class="services">
+		<div class="container">
+            <div class="w3layouts_header">
+				<h2>Comparison <span>Among Algorithms</span></h2>
+				<p><span><i class="fa fa-book" aria-hidden="true"></i></span></p>
+			</div>
+			<div class="w3layouts_skills_grids">
+				<div class="col-md-12">
+                    <div class="panel panel-info">
+                        <div class="panel-heading" style="color:#ef543b;">
+                           <h3 style="font-size:26px">Result Analysis</h3>
+
+                        </div>
+                        <div class="panel-body">
+                            <table class="table table-hover ">
+                              <thead>
+                                <tr>
+                                  <th scope="col"></th>
+                                 <th scope="col" style="font-size:18px;color:black">Total Match</th>
+                                  <th scope="col" style="font-size:18px;color:black">Preprocessing Time</th>
+                                  <th scope="col" style="font-size:18px;color:black">Searching Time</th>
+                                  <th scope="col" style="font-size:18px;color:black">Shifting</th>
+                                 <th scope="col" style="font-size:18px;color:black">Character Comparison</th>
+                                </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <th scope="row" style="color:green;font-size: 20px;">BFM</th>
+                                  <td style="font-size:17px;color:black">{{ matchCountOur }}</td>
+                                 <td style="font-size:17px;color:black">{{ preprocessTimeOur }}</td>
+                                  <td style="font-size:17px;color:black">{{ searchTimeOur }}</td>
+                                  <td style="font-size:17px;color:black">{{ shiftComparisonOur }}</td>
+                                 <td style="font-size:17px;color:black">{{ charComparisonOur }}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row" style="color:green;font-size: 20px;">BMH</th>
+                                  <td style="font-size:17px;color:black">{{ matchCountOur }}</td>
+                                 <td style="font-size:17px;color:black">{{ preprocessTimeBM }}</td>
+                                  <td style="font-size:17px;color:black">{{ searchTimeBM }}</td>
+                                  <td style="font-size:17px;color:black">{{ shiftComparisonBM }}</td>
+                                 <td style="font-size:17px;color:black">{{ charComparisonBM}}</td>
+                                </tr>
+                                <tr>
+                                  <th scope="row" style="color:green;font-size: 20px;">KMP</th>
+                                  <td style="font-size:17px;color:black">{{ matchCountKMP }}</td>
+                                 <td style="font-size:17px;color:black">{{ preprocessTimeKMP }}</td>
+                                  <td style="font-size:17px;color:black">{{ searchTimeKMP }}</td>
+                                  <td style="font-size:17px;color:black">{{ shiftComparisonKMP }}</td>
+                                 <td style="font-size:17px;color:black">{{ charComparisonKMP }}</td>
+                                </tr>
+                              </tbody>
+                            </table>
+                        </div>
+
+                    </div>
+                </div>
+                <!--<div class="col-md-12">-->
+                    <!--<div class="panel panel-info">-->
+                        <!--<div class="panel-heading" style="color:#ef543b;">-->
+                           <!--<h3 style="font-size:26px">Result Analysis Graph</h3>-->
+                        <!--</div>-->
+                        <!--<div class="panel-body">-->
+                            <!--<div class="col-md-4">-->
+                                <!--<div id="morris-bar-chart"></div>-->
+                            <!--</div>-->
+                            <!--<div class="col-md-4">-->
+                                <!--<div id="morris-bar-chart-2"></div>-->
+                            <!--</div>-->
+                            <!--<div class="col-md-4">-->
+                                <!--<div id="morris-bar-chart-3"></div>-->
+                            <!--</div>-->
+
+                        <!--</div>-->
+
+                    <!--</div>-->
+                <!--</div>-->
+            </div>
+
+
+        </div>
+        <!--graph-->
+
+
+    </div>
+
+{% include 'education_gap_analyzer/footer.html' %}
+{% endblock %}
+
+
+

@@ -1,0 +1,115 @@
+{% extends 'education_gap_analyzer/base.html' %}
+
+    <title>Course Content Insertion</title>
+
+{% block body %}
+{% include 'education_gap_analyzer/navbar.html' %}
+<br>
+
+<!-- banner1 -->
+	<div class="banner1">
+	</div>
+    <div class="services">
+		<div class="container">
+            <div class="w3layouts_header">
+				<h2>Course<span> Content</span></h2>
+				<p><span><i class="fa fa-book" aria-hidden="true"></i></span></p>
+			</div>
+			<div class="w3layouts_skills_grids">
+				<div class="container">
+          <div class="row">
+          <div class="page-header">
+          <h1>Course Content Insertion</h1>
+          </div>
+          <form class="form-horizontal" role="form" method="post"  name="courseForm" onsubmit="return validateCourseForm();" action="/education_gap_analyzer/insertCourseData/">
+                {% csrf_token %}
+              <div class="form-group">
+              <label for="UniName" class="col-sm-2 control-label">University Name</label>
+              <div class="col-sm-6">
+              <input type="text" name="UniName" class="form-control" id="UniName" placeholder="Ex : EWU">
+              </div>
+              </div>
+
+              <div class="form-group">
+              <label for="DeptName" class="col-sm-2 control-label">Department Name</label>
+              <div class="col-sm-6">
+              <input type="text" name="DeptName" class="form-control" id="DeptName" placeholder="EX: CSE">
+              </div>
+              </div>
+              <div class="form-group">
+              <label for="courseName" class="col-sm-2 control-label">Course Name </label>
+              <div class="col-sm-6">
+              <input type="text" name="courseName" class="form-control" id="courseName" placeholder="EX: Database Design">
+              </div>
+              </div>
+
+              <div class="form-group">
+              <label for="courseContent" class="col-sm-2 control-label">Course Content</label>
+              <div class="col-sm-6">
+                  <textarea name="courseContent" rows="10" class="form-control" id="courseContent" placeholder="Contents"></textarea>
+
+              </div>
+              </div>
+
+
+              <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-primary" id="register" name="insert">Submit</button>
+              </div>
+              </div>
+
+          </form>
+          </div><!-- end for class "row" -->
+</div><!-- end for class "container" -->
+            </div>
+        </div>
+    </div>
+
+
+<script type="text/javascript">
+    function validateCourseForm(){
+
+          var universityName = courseForm.UniName;
+          if(universityName.value=="")
+          {
+            window.alert("Please enter university Name.");
+            UniName.focus();
+            return false;
+
+          }
+
+          var DepartmentName = courseForm.DeptName;
+          if(DepartmentName.value=="")
+          {
+            window.alert("Please enter Department Name.");
+            DeptName.focus();
+            return false;
+
+          }
+
+          var depCourseName = courseForm.courseName;
+          if(depCourseName.value=="")
+          {
+            window.alert("Please enter Course Name.");
+            courseName.focus();
+            return false;
+
+          }
+
+          var content = courseForm.courseContent;
+          if(content.value=="")
+          {
+            window.alert("Please enter Course Content.");
+            courseContent.focus();
+            return false;
+
+          }
+
+          return true;
+
+       }
+
+</script>
+
+{% include 'education_gap_analyzer/footer.html' %}
+{% endblock %}

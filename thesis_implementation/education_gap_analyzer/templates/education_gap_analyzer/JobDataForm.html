@@ -1,0 +1,118 @@
+
+
+ {% extends 'education_gap_analyzer/base.html' %}
+
+    <title>Education Gap Analyzer</title>
+
+{% block body %}
+
+{% include 'education_gap_analyzer/navbar.html' %}
+<!-- banner1 -->
+ <br>
+
+	<div class="banner1">
+	</div>
+    <div class="services">
+		<div class="container">
+            <div class="w3layouts_header">
+				<h2>Job <span> Data</span></h2>
+				<p><span><i class="fa fa-book" aria-hidden="true"></i></span></p>
+			</div>
+			<div class="w3layouts_skills_grids">
+				<div class="col-md-12">
+                    <div class="container">
+          <div class="row">
+          <div class="page-header">
+          <h1>Job Data</h1>
+          </div>
+          <form class="form-horizontal" role="form" method="post"  name="jobForm" onsubmit="return validateForm();" action="/education_gap_analyzer/insertdata/">
+                {% csrf_token %}
+              <div class="form-group">
+              <label for="jTitle" class="col-sm-2 control-label">Job Title</label>
+              <div class="col-sm-6">
+              <input type="text" name="jTitle" class="form-control" id="jTitle" placeholder="Ex : Software Engineer">
+              </div>
+              </div>
+
+              <div class="form-group">
+              <label for="catag" class="col-sm-2 control-label">Catagory</label>
+              <div class="col-sm-6">
+              <input type="text" name="catag" class="form-control" id="catag" placeholder="EX: IT&Telecommunication">
+              </div>
+              </div>
+
+              <div class="form-group">
+              <label for="jReq" class="col-sm-2 control-label">Job Requirment</label>
+              <div class="col-sm-6">
+                  <textarea name="jReq" rows="10" class="form-control" id="jReq" placeholder="Requirments"></textarea>
+
+              </div>
+              </div>
+
+              <div class="form-group">
+              <label for="RelatedDept" class="col-sm-2 control-label">Related Department</label>
+              <div class="col-sm-6">
+              <input type="text" name="RelatedDept" class="form-control" id="RelatedDept" placeholder="EX: CSE,EEE etc">
+              </div>
+              </div>
+
+
+              <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-primary" id="register" name="insert">Submit</button>
+              </div>
+              </div>
+
+          </form>
+          </div><!-- end for class "row" -->
+</div><!-- end for class "container" -->
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+ <script type="text/javascript">
+          function validateForm(){
+
+          var title=jobForm.jTitle;
+          if(title.value=="")
+          {
+            window.alert("Please enter Job Title.");
+            jTitle.focus();
+            return false;
+          }
+
+          var category=jobForm.catag;
+          if(category.value=="")
+          {
+            window.alert("Please enter Job category.");
+            catag.focus();
+            return false;
+
+          var requirment=jobForm.jReq;
+          if(requirment.value=="")
+          {
+            window.alert("Please enter Job requirment.");
+            jReq.focus();
+            return false;
+          }
+
+          var relatedDept=jobForm.RelatedDept;
+          if(relatedDept.value=="")
+          {
+            window.alert("Please enter related Deptartment.");
+            RelatedDept.focus();
+            return false;
+          }
+
+          return true;
+
+       }
+ </script>
+
+
+ {% include 'education_gap_analyzer/footer.html' %}
+
+ {% endblock %}
